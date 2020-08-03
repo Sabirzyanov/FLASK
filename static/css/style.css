@@ -23,13 +23,13 @@ body {
 
 .nav-link-collapse:after {
   float: right;
-  /*content: '\f067';*/
+  content: '\f067';
   font-family: 'FontAwesome';
 }
 
 .nav-link-show:after {
   float: right;
-  /*content: '\f068';*/
+  content: '\f068';
   font-family: 'FontAwesome';
 }
 
