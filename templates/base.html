@@ -1,142 +1,173 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>
-    {{title}}
-  </title>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css'>
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
-  <link rel="stylesheet" href="static/css/style.css">
-  <title>
-    {{title}}
-  </title>
+    <meta charset="UTF-8">
+    <title>
+        {{title}}
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css'>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 </head>
 <body>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="#">GaysPC</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarCollapse"
-      aria-controls="navbarCollapse"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto sidenav" id="navAccordion">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Сборки ПК(От настоящих ГЕЕВ)</a>
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link nav-link-collapse"
-            href="#"
-            id="hasSubItems"
-            data-toggle="collapse"
-            data-target="#collapseSubItems2"
-            aria-controls="collapseSubItems2"
-            aria-expanded="false"
-          >Процессоры</a>
-          <ul class="nav-second-level collapse" id="collapseSubItems2" data-parent="#navAccordion">
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span class="nav-link-text">КУКУРУЗЯ</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span class="nav-link-text">ГОВ... ШТЕУД</span>
-              </a>
-            </li>
+   <header>
+        <div class="navbar navbar-expand-lg navbar-dark fixed-top shadow-lg bg-dark" id="myTopnav">
+          <ul class="navbar-nav" id="">
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Home</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Конфигуратор</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#">О Геях</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#">О Сайте</a>
+              </li>
           </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link nav-link-collapse"
-            href="#"
-            id="hasSubItems"
-            data-toggle="collapse"
-            data-target="#collapseSubItems3"
-            aria-controls="collapseSubItems3"
-            aria-expanded="false"
-            >Видеокарты</a>
-          <ul class="nav-second-level collapse" id="collapseSubItems3" data-parent="#navAccordion">
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span class="nav-link-text">Radeon</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span class="nav-link-text">Nvidia</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a
-            class="nav-link nav-link-collapse"
-            href="#"
-            id="hasSubItems"
-            data-toggle="collapse"
-            data-target="#collapseSubItems4"
-            aria-controls="collapseSubItems4"
-            aria-expanded="false"
-          >Item 4</a>
-          <ul class="nav-second-level collapse" id="collapseSubItems4" data-parent="#navAccordion">
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span class="nav-link-text">Item 4.1</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span class="nav-link-text">Item 4.2</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span class="nav-link-text">Item 4.2</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Item 5</a>
-        </li>
-      </ul>
-      <form class="form-inline ml-auto mt-2 mt-md-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
-  </header>
-
-  <main class="content-wrapper">
-    <div class="container-fluid">
-      <h1>Main Content</h1>
-    </div>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-        <div class="text-center">
-            <span>Coded by <a href="">GAYS</a>, 2020</span>
+            <form class="form-inline ml-auto mt-2 mt-md-0">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
         </div>
+    </header>
+    <div class="main">
+        <nav class="navbar-expand-lg navbar-dark fixed-top bg-dark">
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto sidenav rounded" id="navAccordion">
+              <li class="nav-item">
+                <a class="nav-link" href="#">Сборки ПК от настоящих ПИДОРОВ <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-link-collapse"
+                  href="#"
+                  id="hasSubItems"
+                  data-toggle="collapse"
+                  data-target="#collapseSubItems2"
+                  aria-controls="collapseSubItems2"
+                  aria-expanded="false">Процессоры</a>
+                  <ul class="nav-second-level collapse" id="collapseSubItems2" data-parent="#navAccordion">
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">
+                          <span class="nav-link-text">Кукурузя</span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">
+                          <span class="nav-link-text">Гов... Штеуд</span>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">
+                          <span class="nav-link-text">ВСЕ</span>
+                        </a>
+                      </li>
+                    </ul>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link nav-link-collapse"
+                  href="#"
+                  id="hasSubItems"
+                  data-toggle="collapse"
+                  data-target="#collapseSubItems3"
+                  aria-controls="collapseSubItems3"
+                  aria-expanded="false"
+                >Материнки</a>
+                <ul class="nav-second-level collapse" id="collapseSubItems3" data-parent="#navAccordion">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      <span class="nav-link-text">AM4</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      <span class="nav-link-text">AM3</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      <span class="nav-link-text">1151v2</span>
+                    </a>
+                  </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      <span class="nav-link-text">1200</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-link-collapse"
+                  href="#"
+                  id="hasSubItems"
+                  data-toggle="collapse"
+                  data-target="#collapseSubItems4"
+                  aria-controls="collapseSubItems4"
+                  aria-expanded="false">Видяхи</a>
+                  <ul class="nav-second-level collapse" id="collapseSubItems4" data-parent="#navAccordion">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      <span class="nav-link-text">Радик</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      <span class="nav-link-text">Нвидыа</span>
+                    </a>
+                  </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      <span class="nav-link-text">ВСЕ</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link nav-link-collapse"
+                  href="#"
+                  id="hasSubItems"
+                  data-toggle="collapse"
+                  data-target="#collapseSubItems5"
+                  aria-controls="collapseSubItems5"
+                  aria-expanded="false"
+                >Накопители</a>
+                <ul class="nav-second-level collapse" id="collapseSubItems5" data-parent="#navAccordion">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      <span class="nav-link-text">ЖД</span>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">
+                      <span class="nav-link-text">ССД</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            </div>
+        </nav>
+
+        <main class="content-wrapper">
+          <div class="container-fluid">
+            <h1>Main Content</h1>
+          </div>
+        </main>
+
+        <footer class="footer">
+          <div class="container">
+              <div class="text-center">
+                  <span>Coded by <a href="#GAYS">GAYS</a>, 2020</span>
+              </div>
+          </div>
+        </footer>
     </div>
-  </footer>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js'></script>
-  <script  src="static/js/main.js"></script>
-<!-- Булат пидор. -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js'></script>
+   <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<!-- Булат пидор!  -->
 </body>
 </html>
