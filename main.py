@@ -5,8 +5,13 @@ app.config['SECRET_KEY'] = 'gayGard'
 
 
 @app.route('/')
-def index():
-    return render_template('base.html', title='GayPC')
+def main():
+    return render_template('base.html')
+
+
+@app.route('/cpu/all')
+def allCpu():
+    return render_template('index.html')
 
 
 if __name__ == '__main__':

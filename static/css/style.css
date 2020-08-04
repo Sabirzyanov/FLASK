@@ -6,8 +6,14 @@ html {
 body {
     padding-top: 4.5rem;
     margin-bottom: 4.5rem;
+    background-color: #e4e4e4;
 }
 
+h1{
+    text-align: center;
+}
+
+/* Не трогай */
 .footer {
   position: absolute;
   bottom: 0;
@@ -42,16 +48,22 @@ body {
   padding-left: 20px;
 }
 
+/* Можешь менять */
 .main{
   margin-left: 15%;
 }
 
+.buy{
+    float: right;
+}
+
+/* НЕ ТРОГАЙ БЛЯТЬ*/
 @media (min-width: 992px) {
   .sidenav {
     position: absolute;
     top: 0;
     left: 0;
-    margin-left: 15%;
+    /*margin-left: 13%; */
     width: 230px;
     height: calc(100vh - 3.5rem);
     margin-top: 4.3rem;
@@ -65,11 +77,12 @@ body {
   }
 
   .content-wrapper {
-    margin-left: 230px;
+    margin-left: 15%;
+    width: 70%;
   }
 
   .footer {
-    width: calc(90% - 230px);
+    width: calc(80% - 230px);
     margin-left: 9.99%;
   }
 }
