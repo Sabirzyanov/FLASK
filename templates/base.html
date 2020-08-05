@@ -15,7 +15,10 @@
         <div class="navbar navbar-expand-lg navbar-dark fixed-top shadow-lg bg-dark" id="myTopnav">
           <ul class="navbar-nav" id="">
               <li class="nav-item active">
-                <a class="nav-link" href="{{url_for('main')}}">Home</a>
+                <a class="nav-link" href="">GaysPC</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{{url_for('main')}}">Главная</a>
               </li>
               <li class="nav-item active">
                 <a class="nav-link" href="#">Конфигуратор</a>
@@ -50,17 +53,17 @@
                   aria-expanded="false">Процессоры</a>
                   <ul class="nav-second-level collapse" id="collapseSubItems2" data-parent="#navAccordion">
                       <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{url_for('cpu', type='amd')}}">
                           <span class="nav-link-text">Кукурузя</span>
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{url_for('cpu', type='govno')}}">
                           <span class="nav-link-text">Гов... Штеуд</span>
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('allCpu')}}">
+                        <a class="nav-link" href="{{url_for('cpu', type='all')}}">
                           <span class="nav-link-text">ВСЕ</span>
                         </a>
                       </li>

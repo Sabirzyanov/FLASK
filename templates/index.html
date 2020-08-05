@@ -5,30 +5,17 @@
 {% endblock %}
 
 {% block content %}
-<h1>Все процессоры</h1>
+<h1>{{pageTitle}}</h1>
+{% for hardware in hardwareList %}
 <li style="list-style-type: None;">
     <div class="container col-md6 border shadow p-4 mb-4" style="background-color: #fff; border-radius: 8px">
-        <img src="{{url_for('static', filename='img/amd.jpg')}}" alt="Ryzen" style="width: 70px; height: 70px; float: left;">
+        <img src="https://www.regard.ru./cpreview280/shop/324861.jpg" alt="Ryzen" style="width: 70px; height: 70px; float: left;">
         <div style="margin-left: 10px; padding-left: 100px">
-            <h2>RYZEN 1600</h2>
+            <h2>{{hardware.name}}</h2>
             <div>
-                СУПЕР ПРОЦ
-                <a href="" class="btn btn-primary shadow buy" style="background-image: linear-gradient(to top, #fc8507, #ffa218);
-                                                            outline: none;
-                                                            border: 0;
-                                                            color: #fff">
-                Open CPU</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="container col-md6 border shadow p-4 mb-4" style="background-color: #fff; border-radius: 8px">
-        <img src="{{url_for('static', filename='img/amd.jpg')}}" alt="Ryzen" style="width: 70px; height: 70px; float: left;">
-        <div style="margin-left: 10px; padding-left: 100px">
-            <h2>RYZEN 1300</h2>
-            <div>
-                ПРОЦ
-                <a href="" class="btn btn-primary shadow buy" style="background-image: linear-gradient(to top, #fc8507, #ffa218);
+                <div style="float: right"><strong>{{hardware.price}}</strong></div>
+                [ {{hardware.spec}} ]
+                <a href="{{hardware.url}}" class="btn btn-primary shadow buy" style="background-image: linear-gradient(to top, #fc8507, #ffa218);
                                                             outline: none;
                                                             border: 0;
                                                             color: #fff">
@@ -37,4 +24,5 @@
         </div>
     </div>
 </li>
+{% endfor %}
 {% endblock %}
