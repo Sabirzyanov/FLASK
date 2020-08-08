@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Configurator
+{% endblock %}
+
+{% block content %}
+    <div class="border shadow p-4" style="background-color: #fff; border-radius: 8px;">
+        <img src="{{url_for('static', filename='img/motherboard.svg')}}" style="width: 35px; height:35px; margin-right: 10px;">Материнка
+        <button style="float: right" class="btn btn-default btn-add" data-role="show-catalog"><span>+ Добавить</span></button>
+    </div>
+    <div class="border shadow p-4" style="background-color: #fff; border-radius: 8px;">
+        <img src="{{url_for('static', filename='img/cpu.svg')}}" style="width: 35px; height:35px; margin-right: 10px;">Процессор
+        <button style="float: right" class="btn btn-default btn-add" data-role="show-catalog"><span>+ Добавить</span></button>
+    </div>
+    <div class="border shadow p-4" style="background-color: #fff; border-radius: 8px;">
+         <img src="{{url_for('static', filename='img/ram.svg')}}" style="width: 35px; height:35px; margin-right: 10px;">Опера
+        <button style="float: right" class="btn btn-default btn-add" data-role="show-catalog"><span>+ Добавить</span></button>
+    </div>
+    <div class="border shadow p-4" style="background-color: #fff; border-radius: 8px;">
+        <img src="{{url_for('static', filename='img/card.svg')}}" style="width: 35px; height:35px; margin-right: 10px;">Видюха
+        <button style="float: right" class="btn btn-default btn-add" data-role="show-catalog"><span>+ Добавить</span></button>
+    </div>
+    <div class="border shadow p-4" style="background-color: #fff; border-radius: 8px;">
+        <img src="{{url_for('static', filename='img/hdd.svg')}}" style="width: 35px; height:35px; margin-right: 10px;">Накопитель
+        <button style="float: right" class="btn btn-default btn-add" data-role="show-catalog"><span>+ Добавить</span></button>
+    </div>
+    <div class="border shadow p-4" style="background-color: #fff; border-radius: 8px;">
+        <img src="{{url_for('static', filename='img/power.svg')}}" style="width: 35px; height:35px; margin-right: 10px;">БП
+        <button style="float: right" class="btn btn-default btn-add" data-role="show-catalog"><span>+ Добавить</span></button>
+    </div>
+    <div class="border shadow p-4" style="background-color: #fff; border-radius: 8px;">
+        <img src="{{url_for('static', filename='img/case.svg')}}" style="width: 35px; height:35px; margin-right: 10px;">Гроб
+        <button style="float: right" class="btn btn-default btn-add" data-role="show-catalog"><span>+ Добавить</span></button>
+    </div>
+{% endblock %}

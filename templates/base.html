@@ -9,170 +9,183 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css'>
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+	<link rel="stylesheet" href="{{url_for('static', filename='node_modules/sidebar-skeleton-compostrap/dist/css/sidebar.css')}}">
+	<link rel="stylesheet" href="{{url_for('static', filename='node_modules/open-sans-fontface/open-sans.css')}}">
+	<link rel="stylesheet" href="{{url_for('static', filename='node_modules/@fortawesome/fontawesome-free/css/all.css')}}">
+	<link rel="stylesheet" href="{{url_for('static', filename='node_modules/perfect-scrollbar/css/perfect-scrollbar.css')}}">
+	<link rel="stylesheet" href="{{url_for('static', filename='css/sidebar.menu.css')}}">
 </head>
 <body>
-   <header>
-        <div class="navbar navbar-expand-lg navbar-dark fixed-top shadow-lg bg-dark" id="myTopnav">
-          <ul class="navbar-nav" id="">
-              <li class="nav-item active">
-                <a class="nav-link" href="">GaysPC</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="{{url_for('main')}}">Главная</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="#">Конфигуратор</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="#">О Геях</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="#">О Сайте</a>
-              </li>
-          </ul>
-            <form class="form-inline ml-auto mt-2 mt-md-0">
-              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-    </header>
-    <div class="main">
-        <nav class="container navbar-expand-lg navbar-dark fixed-top bg-dark">
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto sidenav rounded" id="navAccordion">
-              <li class="nav-item">
-                <a class="nav-link" href="#">Сборки ПК от настоящих ПИДОРОВ <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link nav-link-collapse"
-                  href="#"
-                  id="hasSubItems"
-                  data-toggle="collapse"
-                  data-target="#collapseSubItems2"
-                  aria-controls="collapseSubItems2"
-                  aria-expanded="false">Процессоры</a>
-                  <ul class="nav-second-level collapse" id="collapseSubItems2" data-parent="#navAccordion">
-                      <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('cpu', type='amd')}}">
-                          <span class="nav-link-text">Кукурузя</span>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('cpu', type='govno')}}">
-                          <span class="nav-link-text">Гов... Штеуд</span>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="{{url_for('cpu', type='all')}}">
-                          <span class="nav-link-text">ВСЕ</span>
-                        </a>
-                      </li>
-                    </ul>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link nav-link-collapse"
-                  href="#"
-                  id="hasSubItems"
-                  data-toggle="collapse"
-                  data-target="#collapseSubItems3"
-                  aria-controls="collapseSubItems3"
-                  aria-expanded="false"
-                >Материнки</a>
-                <ul class="nav-second-level collapse" id="collapseSubItems3" data-parent="#navAccordion">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <span class="nav-link-text">AM4</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <span class="nav-link-text">AM3</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <span class="nav-link-text">1151v2</span>
-                    </a>
-                  </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <span class="nav-link-text">1200</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link nav-link-collapse"
-                  href="#"
-                  id="hasSubItems"
-                  data-toggle="collapse"
-                  data-target="#collapseSubItems4"
-                  aria-controls="collapseSubItems4"
-                  aria-expanded="false">Видяхи</a>
-                  <ul class="nav-second-level collapse" id="collapseSubItems4" data-parent="#navAccordion">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <span class="nav-link-text">Радик</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <span class="nav-link-text">Нвидыа</span>
-                    </a>
-                  </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <span class="nav-link-text">ВСЕ</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link nav-link-collapse"
-                  href="#"
-                  id="hasSubItems"
-                  data-toggle="collapse"
-                  data-target="#collapseSubItems5"
-                  aria-controls="collapseSubItems5"
-                  aria-expanded="false"
-                >Накопители</a>
-                <ul class="nav-second-level collapse" id="collapseSubItems5" data-parent="#navAccordion">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <span class="nav-link-text">ЖД</span>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">
-                      <span class="nav-link-text">ССД</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+   
+    <div class="d-flex wrapper wrapper-navbar-used wrapper-navbar-fixed">
+      <nav role="navigation" class="sidebar sidebar-bg-dark sidebar-rounded-top-right shadow-box" id="navigation">
+
+            <!-- sidebar -->
+            <div class="sidebar-menu">
+
+                <!-- menu fixed -->
+                <div class="sidebar-menu-fixed">
+
+                    <!-- menu scrollbar -->
+                    <div class="scrollbar scrollbar-bg-dark">
+
+                        <!-- menu -->
+                        <ul class="list list-unstyled list-bg-dark list-icon-blue mb-0">
+                            <li class="list-item">
+
+                            <!-- list title -->
+                                <p class="list-title text-uppercase">Главная</p>
+                                <ul class="list-unstyled">
+                                <li><a href="/" class="list-link"><span class="list-icon"><img class="shake-icon" src="{{url_for('static', filename='img/home.png')}}"></span>Перейти на главную</a></li>
+                                </ul>
+
+                            </li>
+
+                            <!-- multi-level dropdown menu -->
+                            <li class="list-item">
+
+                                <!-- list title -->
+                                <p class="list-title text-uppercase">Комплектующие</p>
+
+                                <!-- list items -->
+                                <ul class="list-unstyled">
+                                    <li><a href="#" class="list-link link-arrow"><span class="list-icon"><img class="shake-icon" src="{{url_for('static', filename='img/cpu.png')}}"></span>Процессоры</a>
+
+                                        <!-- list items, second level -->
+                                        <ul class="list-unstyled list-hidden">
+                                            <li><a href="#" class="list-link link-arrow">Intel</a>
+                                                <ul class="list-unstyled list-hidden">
+                                                    <li><a href="{{url_for('cpu', type='Intel', socket='1151 v2')}}" class="list-link">Socket 1151v2</a></li>
+                                                    <li><a href="{{url_for('cpu', type='Intel', socket='1151,')}}" class="list-link">Socket 1151</a></li>
+                                                    <li><a href="{{url_for('cpu', type='Intel', socket='1200')}}" class="list-link">Socket 1200</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#" class="list-link link-arrow">AMD</a>
+
+                                                <!-- list items, third level -->
+                                                <ul class="list-unstyled list-hidden">
+                                                    <li><a href="{{url_for('cpu', type='Amd', socket='AM4')}}" class="list-link">Socket AM4</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    
+                                    <li><a href="#" class="list-link link-arrow"><span class="list-icon"><img class="shake-icon" src="{{url_for('static', filename='img/gpu.png')}}"></span>Видики</a>
+
+                                        <!-- list items, second level -->
+                                        <ul class="list-unstyled list-hidden">
+                                            <li><a href="#" class="list-link">Нвидик</a></li>
+                                            <li><a href="#" class="list-link">Радик</a></li>                                          
+                                        </ul>
+                                    </li>
+                                    
+                                    <li><a href="#" class="list-link link-arrow"><span class="list-icon"><img class="shake-icon" src="{{url_for('static', filename='img/motherboard.png')}}"></span>Материнские платы</a>
+
+                                        <!-- list items, second level -->
+                                        <ul class="list-unstyled list-hidden">
+                                            <li><a href="#" class="list-link link-arrow">Intel</a>
+                                                <ul class="list-unstyled list-hidden">
+                                                    <li><a href="#" class="list-link">Socket 1151v2</a></li>
+                                                    <li><a href="#" class="list-link">Socket 1151</a></li>
+                                                    <li><a href="#" class="list-link">Socket 1200</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#" class="list-link link-arrow">AMD</a>
+
+                                                <!-- list items, third level -->
+                                                <ul class="list-unstyled list-hidden">
+                                                    <li><a href="#" class="list-link">Socket AM4</a></li>
+                                                    <li><a href="#" class="list-link">Socket AM3+</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    
+                                    <li><a href="#" class="list-link link-arrow"><span class="list-icon"><img class="shake-icon" src="{{url_for('static', filename='img/ram.png')}}"></span>Оперативка</a>
+
+                                        <!-- list items, second level -->
+                                        <ul class="list-unstyled list-hidden">
+                                            <li><a href="#" class="list-link">DDR4</a></li>             
+                                            <li><a href="#" class="list-link">DDR3</a></li>
+                                        </ul>
+                                    </li>
+                                    
+                                    <li><a href="#" class="list-link link-arrow"><span class="list-icon"><img class="shake-icon" src="{{url_for('static', filename='img/drive.png')}}"></span>Накопители</a>
+
+                                        <!-- list items, second level -->
+                                        <ul class="list-unstyled list-hidden">
+                                            <li><a href="#" class="list-link">HDD</a></li>
+                                            <li><a href="#" class="list-link">SSD</a></li>                                          
+                                        </ul>
+                                    </li>
+                                    
+                                    <li><a href="#" class="list-link link-arrow"><span class="list-icon"><img class="shake-icon" src="{{url_for('static', filename='img/fan.png')}}"></span>Вентили</a>
+                                        <ul class="list-unstyled list-hidden">
+                                            <li><a href="#" class="list-link">Процессорные</a></li>             
+                                            <li><a href="#" class="list-link">Корпусные</a></li>
+                                            <li><a href="#" class="list-link">СВО</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#" class="list-link"><span class="list-icon"><img class="shake-icon" src="{{url_for('static', filename='img/ps.png')}}"></span>Блоки питания</a></li>
+                                    <li><a href="#" class="list-link"><span class="list-icon"><img class="shake-icon" src="{{url_for('static', filename='img/case.png')}}"></span>Гробы</a></li>
+                                    
+                                </ul>
+                            </li>
+
+                            <li class="list-item">
+
+                                <!-- list title -->
+                                <p class="list-title text-uppercase">Конфигуратор</p>
+                                <ul class="list-unstyled">
+                                    <li><a href="#" class="list-link"><span class="list-icon"><img class="shake-icon" src="{{url_for('static', filename='img/conf.png')}}"></span>Создать конфигурацию</a></li>
+                                </ul>
+                                
+                            </li>
+                            
+                            <li class="list-item">
+
+                                <!-- list title -->
+                                <p class="list-title text-uppercase">О нас</p>
+                                <ul class="list-unstyled">
+                                    <li><a href="#" class="list-link"><span class="list-icon"><img class="shake-icon" src="{{url_for('static', filename='img/team.png')}}"></span>Наша dreamteam</a></li>
+                                </ul>
+                                
+                            </li>
+
+                            
+                        </ul>
+                    </div>
+                </div>
             </div>
         </nav>
-
-        <main class="content-wrapper">
-          <div class="container-fluid">
-              {% block content %}
-              {% endblock %}
-          </div>
-        </main>
-
-        <footer class="footer">
-          <div class="container">
-              <div class="text-center">
-                  <span>Coded by <a href="#GAYS">GAYS</a>, 2020</span>
+        <div class="container" style="padding-top: 4.5rem;">
+            <main class="content-wrapper">
+              <div class="container-fluid">
+                  {% block content %}
+                  {% endblock %}
               </div>
-          </div>
-        </footer>
-    </div>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js'></script>
-   <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-<!-- Булат пидор!  -->
+            </main>
+        </div>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js'></script>
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+
+        <!-- SideBar (also Bulat is faggot)  -->
+
+        <script src="{{url_for('static', filename='node_modules/jquery/dist/jquery.js')}}"></script>
+        <script src="{{url_for('static', filename='node_modules/bootstrap/dist/js/bootstrap.bundle.js')}}"></script>
+        <script src="{{url_for('static', filename='node_modules/sidebar-skeleton-compostrap/dist/js/sidebar.js')}}"></script>
+        <script src="{{url_for('static', filename='node_modules/perfect-scrollbar/dist/perfect-scrollbar.js')}}"></script>
+        <script src="{{url_for('static', filename='node_modules/nanobar/nanobar.js')}}"></script>
+        <script src="{{url_for('static', filename='js/sidebar.menu.js')}}"></script>
+        <script>
+            $(function() {
+                new Nanobar().go(100);
+                new PerfectScrollbar('.scrollbar');
+            });
+        </script>
+    <!-- Булат пидор!  -->
+ </div>   
 </body>
 </html>

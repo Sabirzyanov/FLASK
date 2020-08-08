@@ -9,18 +9,17 @@
 {% for hardware in hardwareList %}
 <li style="list-style-type: None;">
     <div class="container col-md6 border shadow p-4 mb-4" style="background-color: #fff; border-radius: 8px">
-        <img src="https://www.regard.ru./cpreview280/shop/324861.jpg" alt="Ryzen" style="width: 70px; height: 70px; float: left;">
-        <div style="margin-left: 10px; padding-left: 100px">
+        <img src="{{hardware.picture}}" alt="Ryzen" style="width: 70px; height: 70px; float: left;">
+        <div style="margin-left: 10px; padding-left: 75px">
             <h2>{{hardware.name}}</h2>
-            <div>
-                <div style="float: right"><strong>{{hardware.price}}</strong></div>
-                [ {{hardware.spec}} ]
-                <a href="{{hardware.url}}" class="btn btn-primary shadow buy" style="background-image: linear-gradient(to top, #fc8507, #ffa218);
+            <div style="float: right; ">
+                    <div style=""><strong>{{hardware.price}}</strong></div>
+                    <a href="{{hardware.url}}" class="btn btn-primary shadow buy" style="background: linear-gradient(to bottom right, #33ccff 0%, #ff99cc 100%);
                                                             outline: none;
                                                             border: 0;
-                                                            color: #fff">
-                Open CPU</a>
-            </div>
+                                                            color: #fff;">
+                        Open</a></div>
+            <div style="width: 70%">[{{hardware.spec}}]</div>
         </div>
     </div>
 </li>
