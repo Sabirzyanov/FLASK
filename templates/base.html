@@ -14,6 +14,8 @@
 	<link rel="stylesheet" href="{{url_for('static', filename='node_modules/@fortawesome/fontawesome-free/css/all.css')}}">
 	<link rel="stylesheet" href="{{url_for('static', filename='node_modules/perfect-scrollbar/css/perfect-scrollbar.css')}}">
 	<link rel="stylesheet" href="{{url_for('static', filename='css/sidebar.menu.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+
 </head>
 <body>
    
@@ -85,17 +87,16 @@
                                         <ul class="list-unstyled list-hidden">
                                             <li><a href="#" class="list-link link-arrow">Intel</a>
                                                 <ul class="list-unstyled list-hidden">
-                                                    <li><a href="#" class="list-link">Socket 1151v2</a></li>
-                                                    <li><a href="#" class="list-link">Socket 1151</a></li>
-                                                    <li><a href="#" class="list-link">Socket 1200</a></li>
+                                                    <li><a href="{{url_for('motherboard', socket='1151 v2')}}" class="list-link">Socket 1151v2</a></li>
+                                                    <li><a href="{{url_for('motherboard', socket='1151,')}}" class="list-link">Socket 1151</a></li>
+                                                    <li><a href="{{url_for('motherboard', socket='1200')}}" class="list-link">Socket 1200</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="#" class="list-link link-arrow">AMD</a>
 
                                                 <!-- list items, third level -->
                                                 <ul class="list-unstyled list-hidden">
-                                                    <li><a href="#" class="list-link">Socket AM4</a></li>
-                                                    <li><a href="#" class="list-link">Socket AM3+</a></li>
+                                                    <li><a href="{{url_for('motherboard', socket='am4')}}" class="list-link">Socket AM4</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -105,8 +106,8 @@
 
                                         <!-- list items, second level -->
                                         <ul class="list-unstyled list-hidden">
-                                            <li><a href="#" class="list-link">DDR4</a></li>             
-                                            <li><a href="#" class="list-link">DDR3</a></li>
+                                            <li><a href="{{url_for('ram', type='ddr-4')}}" class="list-link">DDR-4</a></li>
+                                            <li><a href="{{url_for('ram', type='ddr-3')}}" class="list-link">DDR-3</a></li>
                                         </ul>
                                     </li>
                                     
@@ -114,20 +115,20 @@
 
                                         <!-- list items, second level -->
                                         <ul class="list-unstyled list-hidden">
-                                            <li><a href="#" class="list-link">HDD</a></li>
-                                            <li><a href="#" class="list-link">SSD</a></li>                                          
+                                            <li><a href="{{url_for('drive', type='hdd')}}" class="list-link">HDD</a></li>
+                                            <li><a href="{{url_for('drive', type='ssd')}}" class="list-link">SSD</a></li>
                                         </ul>
                                     </li>
                                     
                                     <li><a href="#" class="list-link link-arrow"><span class="list-icon"><img class="shake-icon" src="{{url_for('static', filename='img/fan.png')}}"></span>Вентили</a>
                                         <ul class="list-unstyled list-hidden">
-                                            <li><a href="#" class="list-link">Процессорные</a></li>             
-                                            <li><a href="#" class="list-link">Корпусные</a></li>
-                                            <li><a href="#" class="list-link">СВО</a></li>
+                                            <li><a href="{{url_for('cooling', type='для процессора')}}" class="list-link">Процессорные</a></li>
+                                            <li><a href="{{url_for('cooling', type='для корпуса')}}" class="list-link">Корпусные</a></li>
+                                            <li><a href="{{url_for('cooling', type='СВО')}}" class="list-link">СВО</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#" class="list-link"><span class="list-icon"><img class="shake-icon" src="{{url_for('static', filename='img/ps.png')}}"></span>Блоки питания</a></li>
-                                    <li><a href="#" class="list-link"><span class="list-icon"><img class="shake-icon" src="{{url_for('static', filename='img/case.png')}}"></span>Гробы</a></li>
+                                    <li><a href="{{url_for('ps')}}" class="list-link"><span class="list-icon"><img class="shake-icon" src="{{url_for('static', filename='img/ps.png')}}"></span>Блоки питания</a></li>
+                                    <li><a href="{{url_for('case')}}" class="list-link"><span class="list-icon"><img class="shake-icon" src="{{url_for('static', filename='img/case.png')}}"></span>Гробы</a></li>
                                     
                                 </ul>
                             </li>
@@ -137,7 +138,7 @@
                                 <!-- list title -->
                                 <p class="list-title text-uppercase">Конфигуратор</p>
                                 <ul class="list-unstyled">
-                                    <li><a href="#" class="list-link"><span class="list-icon"><img class="shake-icon" src="{{url_for('static', filename='img/conf.png')}}"></span>Создать конфигурацию</a></li>
+                                    <li><a href="{{url_for('configurator')}}" class="list-link"><span class="list-icon"><img class="shake-icon" src="{{url_for('static', filename='img/conf.png')}}"></span>Создать конфигурацию</a></li>
                                 </ul>
                                 
                             </li>

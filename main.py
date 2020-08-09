@@ -41,6 +41,20 @@ def ram(type):
     return render_template('index.html', hardwareList=ramList, pageTitle='Оперативка ' + type.upper())
 
 
+@app.route('/drive/<string:type>')
+def drive(type):
+    session = db_session.create_session()
+    driveList = session.query(Hardware).filter(Hardware.hardware_type == type)
+    return render_template('index.html', hardwareList=driveList, pageTitle='Накопители: ' + type.upper())
+
+
+@app.route('/cooling/<string:type>')
+def cooling(type):
+    session = db_session.create_session()
+    coolingList = session.query(Hardware).filter(Hardware.hardware_type == 'cooling', Hardware.spec.contains(type))
+    return render_template('index.html', hardwareList=coolingList, pageTitle='Охлаждение: ' + type.upper())
+
+
 @app.route('/ps')
 def ps():
     session = db_session.create_session()
@@ -48,11 +62,11 @@ def ps():
     return render_template('index.html', hardwareList=psList, pageTitle='БП-шки')
 
 
-@app.route('/drive/<string:type>')
-def drive(type):
+@app.route('/case')
+def case():
     session = db_session.create_session()
-    driveList = session.query(Hardware).filter(Hardware.hardware_type == type)
-    return render_template('index.html', hardwareList=driveList, pageTitle='Накопители: ' + type.upper())
+    psList = session.query(Hardware).filter(Hardware.hardware_type == 'case')
+    return render_template('index.html', hardwareList=psList, pageTitle='Гробы для комплектующих')
 
 
 @app.route('/video')
@@ -62,7 +76,16 @@ def videoCard():
 
 @app.route('/configurator')
 def configurator():
-    return render_template('configurator.html')
+    confList = {
+        'Motherboard': {"name": "Материнка", "pic": 'motherboard.svg'},
+        'Cpu': {"name": "Проц", "pic": 'cpu.svg'},
+        'Ram': {"name": "Опера", "pic": 'ram.svg'},
+        'Card': {"name": "Видик", "pic": 'card.svg'},
+        'HDD': {"name": "Накопитель", "pic": 'hdd.svg'},
+        'PS': {"name": "БП", "pic": 'power.svg'},
+        'Case': {"name": "Гроб", "pic": 'case.svg'},
+    }
+    return render_template('configurator.html', confList=confList)
 
 
 if __name__ == '__main__':
