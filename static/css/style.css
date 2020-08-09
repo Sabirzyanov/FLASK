@@ -13,40 +13,6 @@ h1{
     text-align: center;
 }
 
-/* Не трогай */
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 3.5rem;
-  line-height: 3.5rem;
-  background-color: #ccc;
-}
-
-.nav-link:hover {
-  transition: all 0.4s;
-}
-
-.nav-link-collapse:after {
-  float: right;
-  content: '\f067';
-  font-family: 'FontAwesome';
-}
-
-.nav-link-show:after {
-  float: right;
-  content: '\f068';
-  font-family: 'FontAwesome';
-}
-
-.nav-item ul.nav-second-level {
-  padding-left: 0;
-  list-style-type: none;
-}
-
-.nav-item ul.nav-second-level > .nav-item {
-  padding-left: 20px;
-}
 
 /* Можешь менять */
 .main{
@@ -56,36 +22,6 @@ h1{
 
 .buy{
     float: right;
-}
-
-/* НЕ ТРОГАЙ БЛЯТЬ*/
-@media (min-width: 992px) {
-  .sidenav {
-    position: absolute;
-    top: 0;
-    left: 0;
-    /*margin-left: 13%; */
-    width: 230px;
-    height: calc(100vh - 3.5rem);
-    margin-top: 4.3rem;
-    background: #343a40;
-    box-sizing: border-box;
-    border-top: 1px solid rgba(0, 0, 0, 0.3);
-  }
-
-  .navbar-expand-lg .sidenav {
-    flex-direction: column;
-  }
-
-  .content-wrapper {
-    margin-left: 5%;
-    width: 90%;
-  }
-
-  .footer {
-    width: calc(80% - 230px);
-    margin-left: 9.99%;
-  }
 }
 
 
@@ -188,4 +124,92 @@ h1{
 .btn:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+/* кнопки добавления НЕ ТРОГАЙ БЛЯТЬ */
+
+.main-hr {
+  width: 30%;
+  border: none;
+  border-top: 1px solid #c3c3c3;
+}
+.icon-btn {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #cdcdcd;
+  background: white;
+  border-radius: 25px;
+  overflow: hidden;
+  position: relative;
+  transition: width 0.2s ease-in-out;
+}
+.add-btn:hover {
+  width: 120px;
+}
+.add-btn::before,
+.add-btn::after {
+  transition: width 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+  content: "";
+  position: absolute;
+  height: 4px;
+  width: 10px;
+  top: calc(50% - 2px);
+  background: #222;
+}
+.add-btn::after {
+  right: 14px;
+  overflow: hidden;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.add-btn::before {
+  left: 14px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.icon-btn:focus {
+  outline: none;
+}
+.btn-txt {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.add-btn:hover::before,
+.add-btn:hover::after {
+  width: 4px;
+  border-radius: 2px;
+}
+.add-btn:hover .btn-txt {
+  opacity: 1;
+}
+.add-icon::after,
+.add-icon::before {
+  transition: all 0.2s ease-in-out;
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 2px;
+  top: calc(50% - 10px);
+  background: #222;
+  overflow: hidden;
+}
+.add-icon::before {
+  left: 22px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+.add-icon::after {
+  right: 22px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.add-btn:hover .add-icon::before {
+  left: 15px;
+  height: 4px;
+  top: calc(50% - 2px);
+}
+.add-btn:hover .add-icon::after {
+  right: 15px;
+  height: 4px;
+  top: calc(50% - 2px);
 }

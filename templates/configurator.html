@@ -8,7 +8,12 @@
     {% for conf in confList %}
         <div class="border shadow p-4" style="background-color: #fff; border-radius: 8px;">
             <img src="static/img/{{confList[conf]['pic']}}" style="width: 35px; height:35px; margin-right: 10px;">{{confList[conf]["name"]}}
-            <button style="float: right" class="btn btn-default btn-add" data-role="show-catalog"><span>Добавить</span></button>
+            <div style="float:right;text-align: center; width: 20%;">
+                <button class="icon-btn add-btn" >
+                    <div class="add-icon"></div>
+                    <div class="btn-txt">Добавить</div>
+                </button>
+            </div>
         </div>
     {% endfor %}
-{% endblock %}
+{% endblock %}  
