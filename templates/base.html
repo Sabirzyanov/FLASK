@@ -17,10 +17,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
 
 </head>
+<header>
+    <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
+
+		<a class="navbar-brand" href="#">
+			<span class="text-dark">Gays' PC</span>
+		</a>
+
+		<button class="navbar-toggler btn btn-link border-0" type="button" id="sidebar" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+	</nav>
+</header>
 <body>
-   
     <div class="d-flex wrapper wrapper-navbar-used wrapper-navbar-fixed">
-      <nav role="navigation" class="sidebar sidebar-bg-dark sidebar-rounded-top-right shadow-box" id="navigation">
+        
+      <nav role="navigation" class="sidebar sidebar-bg-dark sidebar-rounded-top-right shadow-box" id="navigation" style="z-index: 3;">
 
             <!-- sidebar -->
             <div class="sidebar-menu">
@@ -76,8 +88,8 @@
 
                                         <!-- list items, second level -->
                                         <ul class="list-unstyled list-hidden">
-                                            <li><a href="#" class="list-link">Нвидик</a></li>
-                                            <li><a href="#" class="list-link">Радик</a></li>                                          
+                                            <li><a href="{{url_for('videoCard', type='geforce')}}" class="list-link">Нвидик</a></li>
+                                            <li><a href="{{url_for('videoCard', type='radeon')}}" class="list-link">Радик</a></li>
                                         </ul>
                                     </li>
                                     
@@ -106,8 +118,8 @@
 
                                         <!-- list items, second level -->
                                         <ul class="list-unstyled list-hidden">
-                                            <li><a href="{{url_for('ram', type='ddr-4')}}" class="list-link">DDR-4</a></li>
-                                            <li><a href="{{url_for('ram', type='ddr-3')}}" class="list-link">DDR-3</a></li>
+                                            <li><a href="{{url_for('ram', type='ddr-4')}}" class="list-link">DDR4</a></li>
+                                            <li><a href="{{url_for('ram', type='ddr-3')}}" class="list-link">DDR3</a></li>
                                         </ul>
                                     </li>
                                     

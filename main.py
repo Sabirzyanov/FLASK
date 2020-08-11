@@ -31,6 +31,7 @@ def motherboard(socket):
     session = db_session.create_session()
     motherboardList = session.query(Hardware).filter(Hardware.hardware_type == 'motherboard',
                                                      Hardware.spec.contains(socket))
+    socket = ''.join([i for i in socket if i != ','])
     return render_template('index.html', hardwareList=motherboardList, pageTitle='Материнки на ' + socket.upper())
 
 
@@ -69,9 +70,11 @@ def case():
     return render_template('index.html', hardwareList=psList, pageTitle='Гробы для комплектующих')
 
 
-@app.route('/video')
-def videoCard():
-    return render_template('index.html', pageTitle='Тот кто делает бд долбоёб')
+@app.route('/gpu/<string:type>')
+def videoCard(type):
+    session = db_session.create_session()
+    gpuList = session.query(Hardware).filter(Hardware.hardware_type == 'gpu', Hardware.name.contains(type))
+    return render_template('index.html', hardwareList=gpuList, pageTitle='Видики')
 
 
 @app.route('/configurator')
