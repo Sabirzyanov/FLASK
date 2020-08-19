@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from sqlalchemy import or_
 from data import db_session
 from data.hardware import Hardware
 
@@ -52,7 +53,10 @@ def drive(type):
 @app.route('/cooling/<string:type>')
 def cooling(type):
     session = db_session.create_session()
-    coolingList = session.query(Hardware).filter(Hardware.hardware_type == 'cooling', Hardware.spec.contains(type))
+    if type == 'сво':
+        coolingList = session.query(Hardware).filter(Hardware.hardware_type == 'cooling', Hardware.spec.contains('СВО'))
+    else:
+        coolingList = session.query(Hardware).filter(Hardware.hardware_type == 'cooling', Hardware.spec.contains(type))
     return render_template('index.html', hardwareList=coolingList, pageTitle='Охлаждение: ' + type.upper())
 
 
@@ -80,15 +84,28 @@ def videoCard(type):
 @app.route('/configurator')
 def configurator():
     confList = {
-        'Motherboard': {"name": "Материнка", "pic": 'motherboard.svg'},
-        'Cpu': {"name": "Проц", "pic": 'cpu.svg'},
-        'Ram': {"name": "Опера", "pic": 'ram.svg'},
-        'Card': {"name": "Видик", "pic": 'card.svg'},
-        'HDD': {"name": "Накопитель", "pic": 'hdd.svg'},
-        'PS': {"name": "БП", "pic": 'power.svg'},
-        'Case': {"name": "Гроб", "pic": 'case.svg'},
+        'Motherboard': {"name": "Материнка", "pic": 'motherboard.svg', 'h_name': 'motherboard'},
+        'Cpu': {"name": "Проц", "pic": 'cpu.svg', 'h_name': 'cpu'},
+        'Ram': {"name": "Опера", "pic": 'ram.svg', 'h_name': 'ram'},
+        'Card': {"name": "Видик", "pic": 'card.svg', 'h_name': 'gpu'},
+        'HDD': {"name": "Накопитель", "pic": 'hdd.svg', 'h_name': 'hdd'},
+        'PS': {"name": "БП", "pic": 'power.svg', 'h_name': 'ps'},
+        'Case': {"name": "Гроб", "pic": 'case.svg', 'h_name': 'case'},
     }
-    return render_template('configurator.html', confList=confList)
+
+    session = db_session.create_session()
+    hardware_list = {
+        'motherboard': session.query(Hardware).filter(Hardware.hardware_type == 'motherboard'),
+        'cpu': session.query(Hardware).filter(Hardware.hardware_type == 'cpu'),
+        'ram': session.query(Hardware).filter(Hardware.hardware_type == 'ram'),
+        'gpu': session.query(Hardware).filter(Hardware.hardware_type == 'gpu'),
+        'hdd': session.query(Hardware).filter(or_(Hardware.hardware_type == 'hdd', Hardware.hardware_type == 'ssd')),
+        # 'ssd': session.query(Hardware).filter(Hardware.hardware_type == 'ssd'),
+        'ps': session.query(Hardware).filter(Hardware.hardware_type == 'ps'),
+        'case': session.query(Hardware).filter(Hardware.hardware_type == 'case')
+    }
+
+    return render_template('configurator.html', confList=confList, hardware_list=hardware_list)
 
 
 if __name__ == '__main__':
