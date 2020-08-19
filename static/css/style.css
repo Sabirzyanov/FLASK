@@ -278,3 +278,11 @@ h1{
    fill: #444;
    cursor: pointer;
 }
+
+.js-hardware-block {
+    text-decoration: none;
+    display: block;
+}
+.js-hardware-block:hover {
+    text-decoration: none;
+}

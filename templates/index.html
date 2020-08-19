@@ -9,7 +9,7 @@
 {% for hardware in hardwareList %}
 <li style="list-style-type: None;">
     <div class="container col-md6 border shadow p-4 mb-4" style="background-color: #fff; border-radius: 8px; color: #343538;">
-        <img src="{{hardware.picture}}" alt="Ryzen" style="width: 70px; height: 70px; float: left;">
+        <img src="{{hardware.picture}}" loading="lazy" alt="Hardware" style="width: 70px; height: 70px; float: left;">
         <div style="margin-left: 10px; padding-left: 75px">
             <div style="float:right;"><strong>{{hardware.price}}</strong></div>
             <h2>{{hardware.name}}</h2>                
@@ -20,7 +20,3 @@
 </li>
 {% endfor %}
 {% endblock %}
-  <button class="icon-btn add-btn" style="color: white;">
-    <div class="add-icon"></div>
-    <div class="btn-txt">Добавить</div>
-  </button>
