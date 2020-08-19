@@ -100,7 +100,6 @@ def configurator():
         'ram': session.query(Hardware).filter(Hardware.hardware_type == 'ram'),
         'gpu': session.query(Hardware).filter(Hardware.hardware_type == 'gpu'),
         'hdd': session.query(Hardware).filter(or_(Hardware.hardware_type == 'hdd', Hardware.hardware_type == 'ssd')),
-        # 'ssd': session.query(Hardware).filter(Hardware.hardware_type == 'ssd'),
         'ps': session.query(Hardware).filter(Hardware.hardware_type == 'ps'),
         'case': session.query(Hardware).filter(Hardware.hardware_type == 'case')
     }
