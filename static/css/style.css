@@ -283,6 +283,48 @@ h1{
     text-decoration: none;
     display: block;
 }
+
 .js-hardware-block:hover {
     text-decoration: none;
 }
+
+/* close button for configurator */
+
+.close-container {
+	 position: relative;
+	 width: 35px;
+	 height: 35px;
+	 cursor: pointer;
+     float: right;
+     margin-right: 5%;
+}
+ .leftright {
+	 height: 4px;
+	 width: 35px;
+	 position: absolute;
+	 margin-top: 24px;
+	 background-color: #343a40;
+	 border-radius: 2px;
+	 transform: rotate(45deg);
+	 transition: all 0.3s ease-in;
+}
+ .rightleft {
+	 height: 4px;
+	 width: 35px;
+	 position: absolute;
+	 margin-top: 24px;
+	 background-color: #343a40;
+	 border-radius: 2px;
+	 transform: rotate(-45deg);
+	 transition: all 0.3s ease-in;
+}
+
+ .close-container:hover .leftright {
+	 transform: rotate(-45deg);
+	 background-color: #f25c66;
+}
+ .close-container:hover .rightleft {
+	 transform: rotate(45deg);
+	 background-color: #f25c66;
+}
+ 

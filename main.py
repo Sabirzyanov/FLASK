@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-from sqlalchemy import or_
 from data import db_session
 from data.hardware import Hardware
 
@@ -99,7 +98,8 @@ def configurator():
         'cpu': session.query(Hardware).filter(Hardware.hardware_type == 'cpu'),
         'ram': session.query(Hardware).filter(Hardware.hardware_type == 'ram'),
         'gpu': session.query(Hardware).filter(Hardware.hardware_type == 'gpu'),
-        'hdd': session.query(Hardware).filter(or_(Hardware.hardware_type == 'hdd', Hardware.hardware_type == 'ssd')),
+        'hdd': session.query(Hardware).filter(Hardware.hardware_type == 'hdd'),
+        # 'ssd': session.query(Hardware).filter(Hardware.hardware_type == 'ssd'),
         'ps': session.query(Hardware).filter(Hardware.hardware_type == 'ps'),
         'case': session.query(Hardware).filter(Hardware.hardware_type == 'case')
     }

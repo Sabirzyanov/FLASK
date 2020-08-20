@@ -10,7 +10,7 @@
         <div class="border shadow p-4 origin-{{confList[conf]['h_name']}}" style="background-color: #fff; border-radius: 8px;">
             <img src="static/img/{{confList[conf]['pic']}}" style="width: 35px; height:35px; margin-right: 10px;">{{confList[conf]["name"]}}
             <div style="float:right;text-align: center; width: 20%;">
-                <button class="icon-btn add-btn js-open-modal" data-modal="{{confList[conf]['h_name']}}">
+                <button  class="icon-btn add-btn js-open-modal" data-modal="{{confList[conf]['h_name']}}">
                     <div class="add-icon"></div>
                     <div class="btn-txt">Добавить</div>
                 </button>
@@ -29,8 +29,8 @@
                 <img src="{{hardware.picture}}" loading="lazy" alt="Hardware" style="width: 70px; height: 70px; float: left;">
                 <div style="margin-left: 10px; padding-left: 75px">
                     <div style="float:right;"><strong>{{hardware.price}}</strong></div>
-                    <h2>{{hardware.name}}</h2>                                           
-                    <div style="width: 70%">[{{hardware.spec}}]</div>
+                    <h2>{{hardware.name}}</h2>
+                    <div class="hardware-spec" style="width: 70%">[{{hardware.spec}}]</div>
                 </div>
             </div></a>
 
@@ -39,7 +39,7 @@
 
     {% endfor %}
 
-<script src="{{url_for('static', filename='js/modal.js')}}"></script>
+<script src="{{url_for('static', filename='js/modal.js')}}"></script> 
 <script src="{{url_for('static', filename='js/configurator.js')}}"></script>
 <div class="overlay js-overlay-modal"></div>
 {% endblock %}  
