@@ -7,7 +7,8 @@
 {% block content %}
 
     {% for conf in confList %}
-        <div class="border shadow p-4 origin-{{confList[conf]['h_name']}}" style="background-color: #fff; border-radius: 8px;">
+        <div class="border shadow p-4 origin-{{confList[conf]['h_name']}}" style="background-color: #fff; border-radius: 8px; position: relative;margin-bottom: 5px;">
+            
             <img src="static/img/{{confList[conf]['pic']}}" style="width: 35px; height:35px; margin-right: 10px;">{{confList[conf]["name"]}}
             <div style="float:right;text-align: center; width: 20%;">
                 <button  class="icon-btn add-btn js-open-modal" data-modal="{{confList[conf]['h_name']}}">
@@ -25,14 +26,17 @@
            <svg class="modal__cross js-modal-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
            {% for hardware in hardware_list[confList[conf]["h_name"]] %}
 
-            <a class="js-hardware-block {{confList[conf]['h_name']}}" href="#"><div class="container col-md6 border shadow p-4 mb-4" style="background-color: #fff; border-radius: 8px; color: #343538;">
-                <img src="{{hardware.picture}}" loading="lazy" alt="Hardware" style="width: 70px; height: 70px; float: left;">
-                <div style="margin-left: 10px; padding-left: 75px">
-                    <div style="float:right;"><strong>{{hardware.price}}</strong></div>
-                    <h2>{{hardware.name}}</h2>
-                    <div class="hardware-spec" style="width: 70%">[{{hardware.spec}}]</div>
+            <a class="js-hardware-block {{confList[conf]['h_name']}}" href="#">
+                <div class="container col-md6 border shadow p-4 mb-4" style="background-color: #fff; border-radius: 8px; color: #343538;">
+                    <div class="hardware-close-div border" style="display: none;"></div>
+                    <img src="{{hardware.picture}}" loading="lazy" alt="Hardware" style="width: 70px; height: 70px; float: left;">
+                    <div style="margin-left: 10px; padding-left: 75px">
+                        <div style="float:right;"><strong>{{hardware.price}}</strong></div>
+                        <h4>{{hardware.name}}</h4>
+                        <div style="width: 70%">[{{hardware.spec}}]</div>
+                    </div>
                 </div>
-            </div></a>
+            </a>
 
         {% endfor %}
         </div>

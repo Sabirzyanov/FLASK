@@ -13,6 +13,7 @@ html {
 
 body {
     background-color: #f6f6f6;
+    font-family: oswald-extralight,oswald,sans-serif;
 }
 
 h1{
@@ -291,12 +292,11 @@ h1{
 /* close button for configurator */
 
 .close-container {
-	 position: relative;
 	 width: 35px;
 	 height: 35px;
 	 cursor: pointer;
-     float: right;
-     margin-right: 5%;
+
+     
 }
  .leftright {
 	 height: 4px;
@@ -326,5 +326,18 @@ h1{
  .close-container:hover .rightleft {
 	 transform: rotate(45deg);
 	 background-color: #f25c66;
+}
+
+.hardware-close-div {
+    position: absolute;
+    top: -1px;
+    right: -24px; 
+    width: 40px;
+    height: 100%;
+    border: 1px;
+    background-color: #8994A0; 
+    border-radius: 8px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
 }
  

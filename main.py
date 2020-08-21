@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from data import db_session
+from sqlalchemy import or_
 from data.hardware import Hardware
 
 app = Flask(__name__, static_folder='static')
@@ -9,13 +10,18 @@ db_session.global_init('db/GDB.db')
 
 @app.route('/')
 def main():
+    return render_template("index.html", pageTitle='Главная')
+
+
+@app.route('/search')
+def search():
     session = db_session.create_session()
     s = request.args.get('s')
     if s:
-        hardwareList = session.query(Hardware).filter(Hardware.spec.contains(s))
-        return render_template('index.html', hardwareList=hardwareList, pageTitle='Поиск')
+        hardware_list = session.query(Hardware).filter(Hardware.name.contains(s.lower()))
+        return render_template("index.html", hardwareList=hardware_list, pageTitle='Поиск')
     else:
-        return render_template('index.html', pageTitle='Главная')
+        return render_template("index.html", pageTitle='Поиск ничего не вернул')
 
 
 @app.route('/cpu/<string:type>/<string:socket>')
@@ -98,8 +104,8 @@ def configurator():
         'cpu': session.query(Hardware).filter(Hardware.hardware_type == 'cpu'),
         'ram': session.query(Hardware).filter(Hardware.hardware_type == 'ram'),
         'gpu': session.query(Hardware).filter(Hardware.hardware_type == 'gpu'),
-        'hdd': session.query(Hardware).filter(Hardware.hardware_type == 'hdd'),
-        # 'ssd': session.query(Hardware).filter(Hardware.hardware_type == 'ssd'),
+        'hdd': session.query(Hardware).filter(or_(Hardware.hardware_type == 'hdd',
+                                                  Hardware.hardware_type == 'ssd')),
         'ps': session.query(Hardware).filter(Hardware.hardware_type == 'ps'),
         'case': session.query(Hardware).filter(Hardware.hardware_type == 'case')
     }

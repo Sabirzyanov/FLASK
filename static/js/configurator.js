@@ -52,9 +52,20 @@ document.addEventListener('DOMContentLoaded', function() {
              
               
          });
-         closeButton.innerHTML = '<div class="close-container"><div class="leftright"></div><div class="rightleft"></div></div>';                           
-                                
-         originBlock.querySelector('.hardware-spec').before(closeButton);
+         closeButton.innerHTML = '<div class="close-container"><div class="leftright"></div><div class="rightleft"></div></div>';
+         let originBlockHeight = originBlock.offsetHeight;
+         closeButton.style.marginTop = originBlockHeight * 0.29 + "px";
+         originBlock.querySelector('.hardware-close-div').style.height = originBlockHeight + "px"; 
+         originBlock.querySelector('.hardware-close-div').style.display = "block";
+         originBlock.querySelector('.hardware-close-div').appendChild(closeButton);
+         
+         $(window).resize(function(e) {
+             
+             closeButton.style.marginTop = originBlock.offsetHeight * 0.29 + "px";
+             originBlock.querySelector('.hardware-close-div').style.height = originBlock.offsetHeight + "px"; 
+             
+         });
+  
           
          let overlay = document.querySelector('.js-overlay-modal');
          modalElem = document.querySelector('.modal[data-modal="' + hardwareBlockClass + '"]');
@@ -62,7 +73,8 @@ document.addEventListener('DOMContentLoaded', function() {
          modalElem.classList.remove('active');
          overlay.classList.remove('active');
  
-      }); 
+      });
+      
 
    });
     
