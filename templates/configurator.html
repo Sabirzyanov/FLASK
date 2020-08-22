@@ -19,6 +19,21 @@
         </div>
 
     {% endfor %}
+    
+    <div class="save-cfg">
+      <button class="save-cfg-btn">Сохранить</button>
+
+
+      <div class="loader">
+        <div class="check">
+          <span class="check-one"></span>
+          <span class="check-two"></span>
+            <img class="check-img" src="static/img/exclamation_icon.svg">
+        </div>
+      </div>
+  
+    </div>
+
 
     {% for conf in confList %}
         
@@ -32,7 +47,7 @@
                     <img src="{{hardware.picture}}" loading="lazy" alt="Hardware" style="width: 70px; height: 70px; float: left;">
                     <div style="margin-left: 10px; padding-left: 75px">
                         <div style="float:right;"><strong>{{hardware.price}}</strong></div>
-                        <h4>{{hardware.name}}</h4>
+                        <h4 class="hardware-name">{{hardware.name}}</h4>
                         <div style="width: 70%">[{{hardware.spec}}]</div>
                     </div>
                 </div>

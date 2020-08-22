@@ -8,6 +8,13 @@ document.addEventListener('DOMContentLoaded', function() {
         hddBlock = document.querySelector('.origin-hdd').innerHTML,
         psBlock = document.querySelector('.origin-ps').innerHTML,
         caseBlock = document.querySelector('.origin-case').innerHTML;
+    let motherboard = '',
+        cpu = '',
+        gpu = '',
+        ram = '',
+        hdd = '',
+        ps = '',
+        pcCase = '';
     
     hardwareBlocks.forEach(function(item){
 
@@ -62,7 +69,9 @@ document.addEventListener('DOMContentLoaded', function() {
          $(window).resize(function(e) {
              
              closeButton.style.marginTop = originBlock.offsetHeight * 0.29 + "px";
-             originBlock.querySelector('.hardware-close-div').style.height = originBlock.offsetHeight + "px"; 
+             if (originBlock.querySelector('.hardware-close-div')) {
+                originBlock.querySelector('.hardware-close-div').style.height = originBlock.offsetHeight + "px"; 
+             }
              
          });
   
@@ -77,5 +86,104 @@ document.addEventListener('DOMContentLoaded', function() {
       
 
    });
+    let btn = document.querySelector('.save-cfg-btn'),
+      loader = document.querySelector('.loader'),
+      img = document.querySelector('.check-img'),
+      check = document.querySelector('.check');
+  
+      btn.addEventListener('click', function () {
+
+        motherboard = document.querySelector('.origin-motherboard').querySelector('.hardware-name');
+        if (!motherboard){
+            setTimeout(removeCfgBtn, 6000);
+            loader.classList.add('fail');
+            check.classList.add('fail');
+            loader.classList.add('active');
+            return false;
+        }
+        
+        cpu = document.querySelector('.origin-cpu').querySelector('.hardware-name');
+          if (!cpu) {
+              setTimeout(removeCfgBtn, 6000);
+            loader.classList.add('fail');
+            check.classList.add('fail');
+            loader.classList.add('active');
+              return false;
+          }
+        gpu = document.querySelector('.origin-gpu').querySelector('.hardware-name');
+          if (!gpu) {
+              setTimeout(removeCfgBtn, 6000);
+            loader.classList.add('fail');
+            check.classList.add('fail');
+            loader.classList.add('active');
+              return false;
+          }
+        ram = document.querySelector('.origin-ram').querySelector('.hardware-name');
+          if (!ram) {
+              setTimeout(removeCfgBtn, 6000);
+            loader.classList.add('fail');
+            check.classList.add('fail');
+            loader.classList.add('active');
+              return false;
+          }
+        ps = document.querySelector('.origin-ps').querySelector('.hardware-name');
+          if (!ps) {
+              setTimeout(removeCfgBtn, 6000);
+            loader.classList.add('fail');
+            check.classList.add('fail');
+            loader.classList.add('active');
+              return false;
+          }
+        pcCase = document.querySelector('.origin-case').querySelector('.hardware-name');
+          if (!pcCase) {
+              setTimeout(removeCfgBtn, 6000);
+            loader.classList.add('fail');
+            check.classList.add('fail');
+            loader.classList.add('active');
+              return false;
+          }
+        hdd = document.querySelector('.origin-hdd').querySelector('.hardware-name');
+          if (!hdd) {
+              setTimeout(removeCfgBtn, 6000);
+            loader.classList.add('fail');
+            check.classList.add('fail');
+            loader.classList.add('active');
+              return false;
+          }
+          
+        let hardwareNames = {"motherboard":motherboard.textContent,
+                             "cpu": cpu.textContent,
+                             "gpu":gpu.textContent,
+                             "ram":ram.textContent,
+                             "ps":ps.textContent,
+                             "drive":hdd.textContent,
+                             "case":pcCase.textContent}
+          $.ajax({
+              url : "/saveCfg",
+              type : "POST",
+              data : JSON.stringify(hardwareNames),
+              contentType: 'application/json; charset=utf-8',
+              dataType: 'json',
+
+          })
+        
+        setTimeout(removeCfgBtn, 6000);
+        loader.classList.add('active');
+        img.style.display = 'none';
+        
+      });
+      
+
+      loader.addEventListener('animationend', function() {
+        check.classList.add('active'); 
+      });
     
-}); 
+    function removeCfgBtn() {
+        loader.classList.remove('active');
+        loader.classList.remove('fail');
+        check.classList.remove('active');
+        check.classList.remove('fail');
+        img.style.display = 'block';
+    }
+    
+});
