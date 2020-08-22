@@ -122,9 +122,19 @@ def save_cfg():
     configurator.drive = data['drive']
     configurator.ps = data['ps']
     configurator.case = data['case']
+    hardware = session.query(Hardware).filter(Hardware.name == configurator.case)
+    for i in hardware:
+        configurator.picture = i.picture
     session.merge(configurator)
     session.commit()
     return jsonify({'result': 'success'})
+
+
+@app.route('/configurations')
+def all_configurations():
+    session = db_session.create_session()
+    configurations = session.query(Configurator)
+    return render_template('configurations.html', pageTitle='Конфигурации', conf_list=configurations)
 
 
 if __name__ == '__main__':
