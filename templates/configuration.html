@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    config
+{% endblock %}
+
+{% block content %}
+    {% for conf in conf_list %}
+        {% for hardware in hardware_list[conf] %}
+            <div class="border shadow p-4 origin" style="background-color: #fff; border-radius: 8px; position: relative;margin-bottom: 5px;">
+                <img src="{{hardware.picture}}" loading="lazy" alt="Hardware" style="width: 70px; height: 70px; float: left;">
+                    <div style="margin-left: 10px; padding-left: 75px">
+                        <div style="float:right;"><strong>{{hardware.price}}</strong></div>
+                        <h4 class="hardware-name">{{hardware.name}}</h4>
+                        <div style="width: 70%">[{{hardware.spec}}]</div>
+                    </div>
+            </div>
+        {% endfor %}
+    {% endfor %}
+{% endblock %}

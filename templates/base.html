@@ -7,7 +7,9 @@
         {% endblock %}
     </title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css'>
+<!--    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css'>-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 	<link rel="stylesheet" href="{{url_for('static', filename='node_modules/sidebar-skeleton-compostrap/dist/css/sidebar.css')}}">
 	<link rel="stylesheet" href="{{url_for('static', filename='node_modules/open-sans-fontface/open-sans.css')}}">
@@ -19,15 +21,18 @@
 </head>
 <header>
     <nav class="navbar navbar-expand-md navbar-light bg-white fixed-top">
-
-		<a class="navbar-brand" href="#">
-			<span class="text-dark">Gays' PC</span>
-		</a>
-
-		<button class="navbar-toggler btn btn-link border-0" type="button" id="sidebar" aria-label="Toggle navigation">
+      <a class="navbar-brand">Gay's PC</a>
+        <button class="navbar-toggler btn btn-link border-0" type="button" id="sidebar" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-	</nav>
+      <form action="{{ url_for('search') }}" class="search-bar" style="margin: auto;">
+        <input autocomplete="off" type="search" name="s" pattern=".*\S.*" required
+                 aria-label="Search" value="{{request.args.get('s', '')}}">
+        <button class="search-btn" type="submit">
+            <span>Search</span>
+        </button>
+    </form>
+    </nav>
 </header>
 <body>
     <div class="d-flex wrapper wrapper-navbar-used wrapper-navbar-fixed">
@@ -152,7 +157,12 @@
                                 <ul class="list-unstyled">
                                     <li><a href="/configurator" class="list-link"><span class="list-icon"><img class="shake-icon" src="{{url_for('static', filename='img/conf.png')}}"></span>Создать конфигурацию</a></li>
                                 </ul>
-                                
+                                <ul class="list-unstyled">
+                                    <li><a href="#" class="list-link"><span class="list-icon"><img class="shake-icon" src="{{url_for('static', filename='img/conf.png')}}"></span>Готовые сборки</a></li>
+                                </ul>
+                                <ul class="list-unstyled">
+                                    <li><a href="/configurations" class="list-link"><span class="list-icon"><img class="shake-icon" src="{{url_for('static', filename='img/conf.png')}}"></span>Все сборки</a></li>
+                                </ul>
                             </li>
                             
                             <li class="list-item">
