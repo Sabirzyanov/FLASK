@@ -92,7 +92,6 @@ document.addEventListener('DOMContentLoaded', function() {
       check = document.querySelector('.check');
   
       btn.addEventListener('click', function () {
-
         motherboard = document.querySelector('.origin-motherboard').querySelector('.hardware-name');
         if (!motherboard){
             setTimeout(removeCfgBtn, 6000);
@@ -150,7 +149,6 @@ document.addEventListener('DOMContentLoaded', function() {
             loader.classList.add('active');
               return false;
           }
-          
         let hardwareNames = {"motherboard":motherboard.textContent,
                              "cpu": cpu.textContent,
                              "gpu":gpu.textContent,

@@ -21,11 +21,19 @@ html {
 body {
     background-color: #f6f6f6;
     font-family: oswald-extralight,oswald,sans-serif;
-    font-size: 12px;
 }
 
 h1{
     text-align: center;
+}
+
+
+@media (min-width: 1280px){
+    body {font-size: 15px;}
+}
+
+@media (max-width: 1280px){
+    body {font-size: 10px;}
 }
 
 
