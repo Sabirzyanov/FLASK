@@ -5,7 +5,12 @@
 {% endblock %}
 
 {% block content %}
-
+    <div class="input-group mb-3 shadow">
+      <input type="text" id='name' class="form-control" placeholder="Введите название сборки" aria-label="Введите название сборки" aria-describedby="button-addon2">
+<!--      <div class="input-group-append">-->
+<!--        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Отправить</button>-->
+<!--      </div>-->
+    </div>
     {% for conf in confList %}
         <div class="border shadow p-4 origin-{{confList[conf]['h_name']}}" style="background-color: #fff; border-radius: 8px; position: relative;margin-bottom: 5px;">
             

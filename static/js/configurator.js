@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
         hdd = '',
         ps = '',
         pcCase = '';
+        configurationName = '';
     
     hardwareBlocks.forEach(function(item){
 
@@ -149,13 +150,15 @@ document.addEventListener('DOMContentLoaded', function() {
             loader.classList.add('active');
               return false;
           }
+        configurationName = document.getElementById("name").value;
         let hardwareNames = {"motherboard":motherboard.textContent,
                              "cpu": cpu.textContent,
                              "gpu":gpu.textContent,
                              "ram":ram.textContent,
                              "ps":ps.textContent,
                              "drive":hdd.textContent,
-                             "case":pcCase.textContent}
+                             "case":pcCase.textContent,
+                             "name": configurationName}
           $.ajax({
               url : "/saveCfg",
               type : "POST",

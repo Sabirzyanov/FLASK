@@ -114,7 +114,10 @@ def save_cfg():
     data = request.get_json()
     session = db_session.create_session()
     configurator = Configurator()
-    configurator.name = 'Configuration' + str(random.randrange(0, 1000))
+    if data['configurationName'] == '':
+        configurator.name = 'Configuration' + str(random.randrange(0, 1000))
+    else:
+        configurator.name = data['configurationName']
     configurator.motherboard = data['motherboard']
     configurator.cpu = data['cpu']
     configurator.ram = data['ram']
