@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
                              "ps":ps.textContent,
                              "drive":hdd.textContent,
                              "case":pcCase.textContent,
-                             "name": configurationName}
+                             "configurationName":configurationName}
           $.ajax({
               url : "/saveCfg",
               type : "POST",
