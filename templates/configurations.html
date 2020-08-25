@@ -11,7 +11,7 @@
     <div class="container col-md6 border shadow p-4 mb-4" style="background-color: #fff; border-radius: 8px; color: #343538; max-width: 700px;">
         <img src="{{hardware.picture}}" loading="lazy" alt="Hardware" style="width: 70px; height: 70px; float: left;">
         <div style="margin-left: 10px; padding-left: 75px">
-            <div style="float:right;"><strong>Дохера рублей</strong></div>
+            <div style="float:right;"><strong>{{hardware.price}}</strong></div>
             <h4>{{hardware.name}}</h4>
             <a href="{{url_for('one_configuration', id=hardware.id)}}" class="btn btn-primary shadow buy" style="background: #343a40;outline: none;border: 0;width: 120px;color: #f6f6f6;float: right;"><span>Полное</span></a>
             <div style="width: 70%">Motherboard : {{hardware.motherboard}} <br>

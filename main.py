@@ -93,13 +93,13 @@ def videoCard(type):
 @app.route('/configurator')
 def configurator():
     confList = {
-        'Motherboard': {"name": "Материнка", "pic": 'motherboard.svg', 'h_name': 'motherboard'},
-        'Cpu': {"name": "Проц", "pic": 'cpu.svg', 'h_name': 'cpu'},
-        'Ram': {"name": "Опера", "pic": 'ram.svg', 'h_name': 'ram'},
-        'Card': {"name": "Видик", "pic": 'card.svg', 'h_name': 'gpu'},
+        'Motherboard': {"name": "Материнскиая плата", "pic": 'motherboard.svg', 'h_name': 'motherboard'},
+        'Cpu': {"name": "Процессор", "pic": 'cpu.svg', 'h_name': 'cpu'},
+        'Ram': {"name": "Оперативная память", "pic": 'ram.svg', 'h_name': 'ram'},
+        'Card': {"name": "Видеокарта", "pic": 'card.svg', 'h_name': 'gpu'},
         'HDD': {"name": "Накопитель", "pic": 'hdd.svg', 'h_name': 'hdd'},
-        'PS': {"name": "БП", "pic": 'power.svg', 'h_name': 'ps'},
-        'Case': {"name": "Гроб", "pic": 'case.svg', 'h_name': 'case'},
+        'PS': {"name": "Блок питания", "pic": 'power.svg', 'h_name': 'ps'},
+        'Case': {"name": "Корпус", "pic": 'case.svg', 'h_name': 'case'},
     }
 
     session = db_session.create_session()
@@ -121,10 +121,11 @@ def save_cfg():
     data = request.get_json()
     session = db_session.create_session()
     configurator = Configurator()
-    if data['configurationName'] == '':
+    if data['name'] == '':
         configurator.name = 'Configuration' + str(random.randrange(0, 1000))
     else:
-        configurator.name = data['configurationName']
+        configurator.name = data['name']
+    configurator.price = data['price']
     configurator.motherboard = data['motherboard']
     configurator.cpu = data['cpu']
     configurator.ram = data['ram']
@@ -159,7 +160,8 @@ def one_configuration(id):
             'gpu': hardware.gpu,
             'drive': hardware.drive,
             'ps': hardware.ps,
-            'case': hardware.case
+            'case': hardware.case,
+            'price': hardware.price
         }
 
     hardware_list = {
@@ -191,7 +193,7 @@ def get_price():
         for price in price_list:
             result += int(''.join(price.split()[0:-1]))
     except TypeError:
-        print('ашибка: инсаф гомосексуалист')
+        print('булат гомосексуалист')
     if 999 < result < 10000:
         result = [i for i in str(result)]
         result = f"{''.join(result[0:1])} {''.join(result[1: len(result)])}"

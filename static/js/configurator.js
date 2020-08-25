@@ -163,7 +163,8 @@ document.addEventListener('DOMContentLoaded', function() {
             loader.classList.add('active');
               return false;
           }
-        let configurationName = document.getElementById("name").value;          
+        let configurationName = document.getElementById("name").value;
+        let price = document.querySelector('.final-price').textContent;
         let hardwareNames = {"motherboard":motherboard.textContent,
                              "cpu": cpu.textContent,
                              "gpu":gpu.textContent,
@@ -171,7 +172,8 @@ document.addEventListener('DOMContentLoaded', function() {
                              "ps":ps.textContent,
                              "drive":hdd.textContent,
                              "case":pcCase.textContent,
-                             "name": configurationName}
+                             "name": configurationName,
+                             "price": price}
           $.ajax({
               url : "/saveCfg",
               type : "POST",

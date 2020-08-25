@@ -11,7 +11,7 @@
   <div class="card-deck" style="margin-bottom: 20px">
     {% for hardware in hardware_list[type] %}
     <div class="card shadow" style="padding: 5px">
-      <img src="{{hardware.picture}}" class="card-img-top" alt="{{hardware.hardware_type}}">
+      <img src="{{hardware.picture}}" loading="lazy" class="card-img-top" alt="{{hardware.hardware_type}}">
       <div class="card-body">
         <a href='{{hardware.url}}' class="card-title">{{hardware.name}}</a>
         <p></p>

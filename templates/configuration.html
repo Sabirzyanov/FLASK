@@ -13,8 +13,10 @@
                         <div style="float:right;"><strong>{{hardware.price}}</strong></div>
                         <h4 class="hardware-name">{{hardware.name}}</h4>
                         <div style="width: 70%">[{{hardware.spec}}]</div>
+
                     </div>
             </div>
         {% endfor %}
     {% endfor %}
+    <div class="final-price" style="padding-bottom: 10px"><h5>{{conf_list['price']}}</h5></div>
 {% endblock %}

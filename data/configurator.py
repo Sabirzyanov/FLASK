@@ -13,4 +13,5 @@ class Configurator(SqlAlchemyBase):
     drive = sqlalchemy.Column(sqlalchemy.String)
     ps = sqlalchemy.Column(sqlalchemy.String)
     case = sqlalchemy.Column(sqlalchemy.String)
+    price = sqlalchemy.Column(sqlalchemy.String)
     picture = sqlalchemy.Column(sqlalchemy.String)
