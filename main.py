@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, jsonify
 from data import db_session
 from data.hardware import Hardware
 from data.configurator import Configurator
-from sqlalchemy import or_
+from sqlalchemy import or_, func
 import random
 
 app = Flask(__name__, static_folder='static')
@@ -13,12 +13,19 @@ db_session.global_init('db/GDB.db')
 @app.route('/')
 def main():
     session = db_session.create_session()
-    s = request.args.get('s')
-    if s:
-        hardwareList = session.query(Hardware).filter(Hardware.spec.contains(s))
-        return render_template('index.html', hardwareList=hardwareList, pageTitle='Поиск')
-    else:
-        return render_template('index.html', pageTitle='Главная')
+    type_list = {
+        'motherboard': {"name": "Материнские платы"},
+        'cpu': {"name": "Процессоры"},
+        'ram': {"name": "Оперативная память"},
+        'gpu': {"name": "Видеокарты"},
+    }
+    hardware_list = {
+        'motherboard': session.query(Hardware).order_by(func.random()).filter(Hardware.hardware_type == 'motherboard').limit(3),
+        'cpu': session.query(Hardware).order_by(func.random()).filter(Hardware.hardware_type == 'cpu').limit(3),
+        'ram': session.query(Hardware).order_by(func.random()).filter(Hardware.hardware_type == 'ram').limit(3),
+        'gpu': session.query(Hardware).order_by(func.random()).filter(Hardware.hardware_type == 'gpu').limit(3)
+    }
+    return render_template('main.html', hardware_list=hardware_list, type_list=type_list)
 
 
 @app.route('/cpu/<string:type>/<string:socket>')
