@@ -182,5 +182,28 @@ def search():
     return render_template('index.html', hardwareList=hardware_list, pageTitle='Поиск')
 
 
+@app.route('/getprice', methods=["GET", "POST"])
+def get_price():
+    data = request.get_json()
+    price_list = data['priceList']
+    result = 0
+    try:
+        for price in price_list:
+            result += int(''.join(price.split()[0:-1]))
+    except TypeError:
+        print('ашибка: инсаф гомосексуалист')
+    if 999 < result < 10000:
+        result = [i for i in str(result)]
+        result = f"{''.join(result[0:1])} {''.join(result[1: len(result)])}"
+    elif 9999 < result < 100000:
+        result = [i for i in str(result)]
+        result = f"{''.join(result[0:2])} {''.join(result[2: len(result)])}"
+    elif 99999 < result < 1000000:
+        result = [i for i in str(result)]
+        result = f"{''.join(result[0:3])} {''.join(result[3: len(result)])}"
+
+    return jsonify({'price': result})
+
+
 if __name__ == '__main__':
     app.run()

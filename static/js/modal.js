@@ -60,7 +60,7 @@ document.addEventListener('DOMNodeInserted', function() {
 
    var modalButtons = document.querySelectorAll('.js-open-modal'),
        overlay      = document.querySelector('.js-overlay-modal'),
-       closeButtons = document.querySelectorAll('.js-modal-close');
+       closeButtons = document.querySelectorAll('.js-modal-close');       
 
    modalButtons.forEach(function(item){
 
@@ -75,8 +75,7 @@ document.addEventListener('DOMNodeInserted', function() {
          overlay.classList.add('active');
       }); 
 
-   }); 
-
+   });
 
    closeButtons.forEach(function(item){
 

@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ram = '',
         hdd = '',
         ps = '',
-        pcCase = '';
+        pcCase = '',
         configurationName = '';
     
     hardwareBlocks.forEach(function(item){
@@ -22,15 +22,23 @@ document.addEventListener('DOMContentLoaded', function() {
       item.addEventListener('click', function(e) {
 
          e.preventDefault();
-         let content = item.querySelector('.container').innerHTML
+         let content = item.querySelector('.container').innerHTML;
+         
          let hardwareBlockClass = item.classList[1];
+         let hardwarePrice = item.querySelector('.hardware-price');
+         hardwarePrice.classList.add('choosed');
+          
          let originBlock = document.querySelector('.origin-' + hardwareBlockClass);
          originBlock.innerHTML = content;
          let closeButton = document.createElement('div');
          closeButton.addEventListener('click', function(e) {
+             document.querySelector('.hardware-price.choosed').classList.remove('choosed');
+             getPrice()
+             
              let originBlockClass = originBlock.classList[3];
              
              if (originBlockClass == 'origin-motherboard'){
+                 
                  originBlock.innerHTML = motherboardBlock;
              }
              
@@ -60,6 +68,9 @@ document.addEventListener('DOMContentLoaded', function() {
              
               
          });
+        
+          
+         
          closeButton.innerHTML = '<div class="close-container"><div class="leftright"></div><div class="rightleft"></div></div>';
          let originBlockHeight = originBlock.offsetHeight;
          closeButton.style.marginTop = originBlockHeight * 0.29 + "px";
@@ -82,7 +93,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
          modalElem.classList.remove('active');
          overlay.classList.remove('active');
- 
+         getPrice()
+
       });
       
 
@@ -93,6 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
       check = document.querySelector('.check');
   
       btn.addEventListener('click', function () {
+
         motherboard = document.querySelector('.origin-motherboard').querySelector('.hardware-name');
         if (!motherboard){
             setTimeout(removeCfgBtn, 6000);
@@ -150,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
             loader.classList.add('active');
               return false;
           }
-        configurationName = document.getElementById("name").value;
+        let configurationName = document.getElementById("name").value;          
         let hardwareNames = {"motherboard":motherboard.textContent,
                              "cpu": cpu.textContent,
                              "gpu":gpu.textContent,
@@ -158,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
                              "ps":ps.textContent,
                              "drive":hdd.textContent,
                              "case":pcCase.textContent,
-                             "configurationName":configurationName}
+                             "name": configurationName}
           $.ajax({
               url : "/saveCfg",
               type : "POST",
@@ -185,6 +198,27 @@ document.addEventListener('DOMContentLoaded', function() {
         check.classList.remove('active');
         check.classList.remove('fail');
         img.style.display = 'block';
-    }
+    };
+    
+    function getPrice() {
+        priceList = document.querySelectorAll('.hardware-price.choosed');
+          let rawDataToSend = []
+          for (let i = 0; i < priceList.length; i++) {
+              rawDataToSend.push(priceList[i].textContent);
+          }
+          let dataToSend = {'priceList': rawDataToSend};
+          console.log(JSON.stringify(dataToSend));
+          $.ajax({
+                type: "POST",
+                url: "/getprice",
+                data: JSON.stringify(dataToSend),
+                dataType: "json",
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                success: function(result) {
+                    document.querySelector('.final-price').innerHTML = '<h5>Итоговая цена: ' + result['price'] + ' руб.</h5>';
+                }   
+            });
+    };
     
 });
