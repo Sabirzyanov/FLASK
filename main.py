@@ -4,6 +4,7 @@ from data.hardware import Hardware
 from data.configurator import Configurator
 from sqlalchemy import or_, func
 import random
+import os
 
 app = Flask(__name__, static_folder='static')
 app.config['SECRET_KEY'] = 'gayGard'
